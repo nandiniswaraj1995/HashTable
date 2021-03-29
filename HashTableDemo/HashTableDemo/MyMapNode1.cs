@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HashTableDemo
 {
-    class MyMapNode<K, V>
+    class MyMapNode1<K, V>
     {
         private readonly int size;
         private readonly LinkedList<KeyValue<K, V>>[] items;
@@ -61,15 +61,12 @@ namespace HashTableDemo
                 if (hash.Get(key).Equals(word))
                 {
                     hash.Remove(key);
-                    Console.WriteLine("Removed "+word+" from paragraph");
+                    Console.WriteLine("Removed " + word + " from paragraph");
                 }
             }
         }
-
-
-
-          public void Remove(K key)
-          {
+        public void Remove(K key)
+        {
             int position = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
             bool itemFound = false;
@@ -86,7 +83,7 @@ namespace HashTableDemo
             {
                 linkedList.Remove(foundItem);
             }
-          }
+        }
 
         public V Get(K key)
         {
@@ -131,8 +128,4 @@ namespace HashTableDemo
         public v Value { get; set; }
 
     }
-
-
-
-
 }
