@@ -54,8 +54,22 @@ namespace HashTableDemo
                 }
             }
         }
-        public void Remove(K key)
+        public void Remove(MyMapNode<int, string> hash, string word)
         {
+            for (int key = 0; key < hash.size; key++)
+            {
+                if (hash.Get(key).Equals(word))
+                {
+                    hash.Remove(key);
+                    Console.WriteLine("Removed "+word+" from paragraph");
+                }
+            }
+        }
+
+
+
+          public void Remove(K key)
+          {
             int position = GetArrayPosition(key);
             LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
             bool itemFound = false;
@@ -72,7 +86,7 @@ namespace HashTableDemo
             {
                 linkedList.Remove(foundItem);
             }
-        }
+          }
 
         public V Get(K key)
         {
